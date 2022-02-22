@@ -9,6 +9,7 @@ import { Row } from 'react-bootstrap'
 import moment from 'moment'
 import { useSelector } from "react-redux";
 import { YOUTUBE_SEARCH_PATH } from '../../constants/api.constant'
+import { YOUTUBE_SEARCH_API_KEY } from '../../../configAPIKey'
 
 const YoutubeSearch = () => {
     const [search, setSearch] = useState('')
@@ -25,7 +26,7 @@ const YoutubeSearch = () => {
                 params: {
                     part: 'snippet',
                     maxResults: "6",
-                    key: "AIzaSyBpgn-XvMnVqbT5s_Th1j1pivOOueixN6I",
+                    key: YOUTUBE_SEARCH_API_KEY.KEY,
                     type: "video",
                     q: search
                 }

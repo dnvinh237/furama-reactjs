@@ -9,7 +9,7 @@ import { Row } from 'react-bootstrap'
 import moment from 'moment'
 import { useSelector } from "react-redux";
 import { YOUTUBE_SEARCH_PATH } from '../../constants/api.constant'
-import { YOUTUBE_SEARCH_API_KEY } from '../../../configAPIKey'
+import { YOUTUBE_SEARCH_API_KEY } from '../../configAPIKey'
 
 const YoutubeSearch = () => {
     const [search, setSearch] = useState('')

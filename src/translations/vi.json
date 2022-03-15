@@ -1,0 +1,45 @@
+{
+    "common": {
+        "edit": "Chỉnh sửa",
+        "delete": "Xóa",
+        "close": "Đóng",
+        "search": "Tìm kiếm",
+        "hello": "Xin chào"
+    },
+    "whoAreYou": {
+        "whoAreYou": "Bạn là ai vậy",
+        "userName": "Tên tài khoản",
+        "password": "Mật khẩu",
+        "submit": "Gửi đi"
+    },
+    "employee": {
+        "employee": "Nhân viên",
+        "employeeTable": "Bảng nhân viên",
+        "addNewEmployee": "Thêm mới",
+        "editEmployee": "Chỉnh sửa",
+        "deleteEmployee": "Xóa nhân viên",
+        "id": "ID",
+        "name": "Tên",
+        "position": "Chức vụ",
+        "division": "Đơn vị",
+        "educationDegree": "Bằng cắp",
+        "confirmDelete": "Bạn có muốn xóa nhân viên với tên là ",
+        "andId": "với id là "
+    },
+    "covidTracking": {
+        "covidTracking": "Theo dõi covid",
+        "fromDate": "Từ ngày",
+        "toDate": "Đến ngày",
+        "index": "Index",
+        "date": "Ngày",
+        "confirmed": "Đã Xác Nhận",
+        "active": "Đã hêt",
+        "deaths": "Đã mất"
+    },
+    "youtube": {
+        "youtubeSearch": "Youtube tìm kiếm",
+        "channel": "Kênh: ",
+        "publishTime": "Ngày phát hành: ",
+        "description": "Mô tả: "
+    }
+}

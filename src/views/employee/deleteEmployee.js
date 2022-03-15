@@ -1,7 +1,7 @@
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import { deleteApi } from '../libs/api'
-
+import { FormattedMessage } from 'react-intl';
 
 const DeleteEmployee = (props) => {
     const { handleSubmitDelete, deleteEmployee, modalDeleteShow } = props
@@ -21,17 +21,17 @@ const DeleteEmployee = (props) => {
         <>
             <Modal show={modalDeleteShow} >
                 <Modal.Header closeButton>
-                    <Modal.Title>Delete Employee</Modal.Title>
+                    <Modal.Title> <FormattedMessage id='employee.deleteEmployee' /> </Modal.Title>
                 </Modal.Header>
-                <Modal.Body> Do you want to delete employee with name: {deleteEmployee.name} and id: {deleteEmployee.id}
+                <Modal.Body> <FormattedMessage id='employee.confirmDelete' />  {deleteEmployee.name} <FormattedMessage id='employee.andId' /> {deleteEmployee.id}
 
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="secondary" onClick={props.onHide}>
-                        Close
+                        <FormattedMessage id='common.close' />
                     </Button>
                     <Button variant="primary" onClick={handleSubmitHandle}>
-                        Save Changes
+                        <FormattedMessage id='employee.deleteEmployee' />
                     </Button>
                 </Modal.Footer>
             </Modal>

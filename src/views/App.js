@@ -10,13 +10,18 @@ import CovidTracking from './covidTracking/covidTracking';
 import YoutubeSearch from './youtubeSearch/YoutubeSearch';
 import WhoAreYou from './whoAreYou/whoAreYou';
 import { Row, Container, Col } from "react-bootstrap"
+import ChangeLanguage from './changeLanguage/ChangeLanguage';
 
 function App() {
+
   return (
     <Router>
       <div className="App">
         <Navs></Navs>
         <Container className='mt-3'>
+          <Row className='float-end'>
+            <ChangeLanguage></ChangeLanguage>
+          </Row>
           <Row >
             <Col md={{ span: 12, offset: 0 }}>
               <Switch>

@@ -3,6 +3,7 @@ import axios from "axios"
 import moment from 'moment';
 import { Table } from 'react-bootstrap';
 import { useSelector } from "react-redux";
+import { FormattedMessage } from 'react-intl';
 
 const CovidTracking = () => {
     const toDate = moment('2022-01-01').format('YYYY-MM-DD');
@@ -13,7 +14,7 @@ const CovidTracking = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [isError, setIsError] = useState(false)
 
-    const userName = useSelector(state => state)
+    const user = useSelector(state => state)
 
     const fetchData = async () => {
         const ourRequest = axios.CancelToken.source()
@@ -63,22 +64,22 @@ const CovidTracking = () => {
         <>
             <div className='covid-container'>
                 <div>
-                    <label>From date</label>
+                    <label><FormattedMessage id='covidTracking.fromDate' /></label>
                     <input type="date" value={searchFromDate} onChange={(event) => handleSearchFromDate(event)} />
-                    <label>To date</label>
+                    <label><FormattedMessage id='covidTracking.toDate' /></label>
                     <input type="date" value={searchToDate} onChange={(event) => handleSearchToDate(event)} />
-                    <button type='button' onClick={fetchData}> Search </button>
+                    <button type='button' onClick={fetchData}> <FormattedMessage id='common.search' /> </button>
                 </div>
 
             </div>
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>Index</th>
-                        <th>Date</th>
-                        <th>Confirmed</th>
-                        <th>Active</th>
-                        <th>Deaths</th>
+                        <th><FormattedMessage id='covidTracking.index' /></th>
+                        <th><FormattedMessage id='covidTracking.date' /></th>
+                        <th><FormattedMessage id='covidTracking.confirmed' /></th>
+                        <th><FormattedMessage id='covidTracking.active' /></th>
+                        <th><FormattedMessage id='covidTracking.deaths' /></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -95,11 +96,11 @@ const CovidTracking = () => {
                     })}
                     {isLoading &&
                         <tr>
-                            <td colSpan={5}>Loading .....    {(userName) ? `Please wait  Mr/Ms ${userName}` : " "}</td>
+                            <td colSpan={5}>Loading .....    {(user.username) ? `Please wait  Mr/Ms ${user.username}` : " "}</td>
                         </tr>}
                     {isError &&
                         <tr>
-                            <td colSpan={5}>Something wrong .....    {(userName) ? `Please go back later Mr/Ms ${userName}` : " "}</td>
+                            <td colSpan={5}>Something wrong .....    {(user.username) ? `Please go back later Mr/Ms ${user.username}` : " "}</td>
                         </tr>}
                 </tbody>
             </Table>

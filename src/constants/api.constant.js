@@ -8,5 +8,8 @@ export const EMPLOYEE_API_PATH = {
 
 export const YOUTUBE_SEARCH_PATH = {
     YOUTUBE_SEARCH: 'https://youtube.googleapis.com/youtube/v3/search',
+}
 
+export const API_LOGIN = {
+    API_LOGIN_PATH: 'http://localhost:3000/api/login',
 }

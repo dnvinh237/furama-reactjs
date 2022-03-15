@@ -6,6 +6,7 @@ import AddOrEditEmployee from './addOrEditEmployee'
 import DeleteEmployee from './deleteEmployee';
 import { useSelector } from "react-redux";
 import { EMPLOYEE_API_PATH } from '../../constants/api.constant';
+import { FormattedMessage } from 'react-intl';
 
 const EmployeeManage = () => {
 
@@ -15,8 +16,7 @@ const EmployeeManage = () => {
     const [modalDeleteShow, setModalDeleteShow] = useState(false);
     const [deleteEmployee, setDeleteEmployee] = useState({});
 
-    const userName = useSelector(state => state)
-
+    const user = useSelector(state => state)
     useEffect(() => {
         fetchData()
     }, [])
@@ -69,13 +69,12 @@ const EmployeeManage = () => {
 
     return (
         <>
-
             <div className='d-flex bd-highlight'>
-                <h5 className='me-auto bd-highlight'>Employee Table</h5>
-                <h5 className='bd-highlight' > Hello {userName || "Mr.NoBody"}</h5>
+                <h5 className='me-auto bd-highlight'><FormattedMessage id='employee.employeeTable'></FormattedMessage></h5>
+                <h5 className='bd-highlight' > <FormattedMessage id='common.hello'></FormattedMessage> {user.username || "Mr.NoBody"}</h5>
             </div>
             <Button variant="primary" onClick={handleAddNew}>
-                Add new Employee
+                <FormattedMessage id='employee.addNewEmployee'></FormattedMessage>
             </Button>
 
             <AddOrEditEmployee show={modalShow} onHide={() => setModalShow(false)}
@@ -93,13 +92,13 @@ const EmployeeManage = () => {
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Position</th>
-                        <th>Division</th>
-                        <th>Education Degree</th>
-                        <th>Edit</th>
-                        <th>Delete</th>
+                        <th> <FormattedMessage id='employee.id' /></th>
+                        <th><FormattedMessage id='employee.name' /></th>
+                        <th><FormattedMessage id='employee.position'></FormattedMessage></th>
+                        <th><FormattedMessage id='employee.division'></FormattedMessage></th>
+                        <th><FormattedMessage id='employee.educationDegree'></FormattedMessage></th>
+                        <th><FormattedMessage id='common.edit'></FormattedMessage></th>
+                        <th><FormattedMessage id='common.delete'></FormattedMessage></th>
                     </tr>
                 </thead>
                 {tableData && tableData.length > 0 && tableData.map((item, index) => {
@@ -113,10 +112,10 @@ const EmployeeManage = () => {
                                 <td>{item.division.name}</td>
                                 <td>{item.educationDegree.name}</td>
                                 <td> <Button variant="primary" onClick={() => handleEdit(item)}>
-                                    Edit
+                                    <FormattedMessage id='common.edit'></FormattedMessage>
                                 </Button></td>
                                 <td> <Button variant="primary" onClick={() => handleDelete(item)}>
-                                    Delete
+                                    <FormattedMessage id='common.delete'></FormattedMessage>
                                 </Button></td>
                             </tr>
                         </tbody>

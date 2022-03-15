@@ -10,13 +10,15 @@ import moment from 'moment'
 import { useSelector } from "react-redux";
 import { YOUTUBE_SEARCH_PATH } from '../../constants/api.constant'
 import { YOUTUBE_SEARCH_API_KEY } from '../../configAPIKey'
+import { FormattedMessage } from 'react-intl';
+
 
 const YoutubeSearch = () => {
     const [search, setSearch] = useState('')
     const [videos, setVideos] = useState([])
     const [isLoading, setIsLoading] = useState(false)
 
-    const userName = useSelector(state => state)
+    const user = useSelector(state => state)
 
     const handleSearchYoutube = async () => {
         try {
@@ -48,20 +50,20 @@ const YoutubeSearch = () => {
     return (
         <div className='youtubeSearch-container'>
             <div className='d-flex bd-highlight'>
-                <h5 className='me-auto bd-highlight'>Youtube Search</h5>
-                <h5 className='bd-highlight' > Hello {userName || "Mr.NoBody"}</h5>
+                <h5 className='me-auto bd-highlight'><FormattedMessage id='youtube.youtubeSearch' /></h5>
+                <h5 className='bd-highlight' > <FormattedMessage id='common.hello' /> {user.username || "Mr.NoBody"}</h5>
             </div>
 
             <InputGroup className="mb-3">
-                <InputGroup.Text id="inputGroup-sizing-default">Search</InputGroup.Text>
+                <InputGroup.Text id="inputGroup-sizing-default"> <FormattedMessage id='common.search' /> </InputGroup.Text>
                 <FormControl value={search} onChange={(handleOnChangeSearch)}
                     aria-label="Default"
                     aria-describedby="inputGroup-sizing-default"
                 />
-                <Button variant="primary" onClick={handleSearchYoutube}>Search</Button>
+                <Button variant="primary" onClick={handleSearchYoutube}> <FormattedMessage id='common.search' /></Button>
             </InputGroup>
             {isLoading &&
-                <h5 colSpan={5}>Loading .....    {(userName) ? `Please wait  Mr/Ms ${userName}` : " "}</h5>
+                <h5 colSpan={5}>Loading .....    {(user.username) ? `Please wait  Mr/Ms ${user.username}` : " "}</h5>
             }
             <Row xs={2} md={2} className="g-4 mx-auto ">
                 {videos && videos.length > 0 && videos.map((item, index) => {
@@ -81,13 +83,13 @@ const YoutubeSearch = () => {
                                         </Ratio>
                                     </div>
                                     <Card.Text>
-                                        Channel: {item.snippet.channelTitle}
+                                        <FormattedMessage id='youtube.channel' /> {item.snippet.channelTitle}
                                     </Card.Text>
                                     <Card.Text>
-                                        Publish Time: {moment(item.snippet.publishTime).format("DD/MM/YYYY HH:mm:ss")}
+                                        <FormattedMessage id='youtube.publishTime' />  {moment(item.snippet.publishTime).format("DD/MM/YYYY HH:mm:ss")}
                                     </Card.Text>
                                     <Card.Text>
-                                        Description : {item.snippet.description}
+                                        <FormattedMessage id='youtube.description' /> {item.snippet.description}
                                     </Card.Text>
                                 </Card.Body>
                             </Card>

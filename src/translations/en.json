@@ -1,0 +1,45 @@
+{
+    "common": {
+        "edit": "Edit",
+        "delete": "Delete",
+        "close": "Close",
+        "search": "Search",
+        "hello": "Hello"
+    },
+    "whoAreYou": {
+        "whoAreYou": "Who Are You",
+        "userName": "User Name",
+        "password": "Password",
+        "submit": "Submit"
+    },
+    "employee": {
+        "employee": "Employee",
+        "employeeTable": "Employee Table",
+        "addNewEmployee": "Add New Employee",
+        "editEmployee": "Edit Employee",
+        "deleteEmployee": "Delete Employee",
+        "id": "ID",
+        "name": "Name",
+        "position": "Position",
+        "division": "Division",
+        "educationDegree": "Education Degree",
+        "confirmDelete": " Do you want to delete employee with name: ",
+        "andId": "and id: "
+    },
+    "covidTracking": {
+        "covidTracking": "Covid Tracking",
+        "fromDate": "From Date",
+        "toDate": "To Date",
+        "index": "Index",
+        "date": "Date",
+        "confirmed": "Confirmed",
+        "active": "Active",
+        "deaths": "Deaths"
+    },
+    "youtube": {
+        "youtubeSearch": "Youtube Search",
+        "channel": "Channel: ",
+        "publishTime": "Publish Time: ",
+        "description": "Description: "
+    }
+}

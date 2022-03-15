@@ -8,6 +8,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import * as _ from 'lodash'
 import DropDownButtonComponent from '../../components/dropdownButtonComponent'
 import { EMPLOYEE_API_PATH } from '../../constants/api.constant';
+import { FormattedMessage } from 'react-intl';
 
 const AddOrEditEmployee = (props) => {
     const { handleSubmitAddEmployee, editEmployee, handleSubmitEditEmployee, show } = props
@@ -108,14 +109,16 @@ const AddOrEditEmployee = (props) => {
             <Modal show={show} aria-labelledby="contained-modal-title-vcenter" size='lg'>
                 <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
-                        Using Grid in Modal
+                        {_.isEmpty(editEmployee) ? <FormattedMessage id='employee.addNewEmployee' /> :
+                            <FormattedMessage id='employee.editEmployee' />}
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body className="show-grid">
                     <Container>
                         <Row>
                             <InputGroup className="mb-3">
-                                <InputGroup.Text id="inputGroup-sizing-default"  >ID</InputGroup.Text>
+                                <InputGroup.Text id="inputGroup-sizing-default"  ><FormattedMessage id='employee.id' />
+                                </InputGroup.Text>
                                 <FormControl value={id} readOnly
                                     aria-label="Default"
                                     aria-describedby="inputGroup-sizing-default"
@@ -124,7 +127,7 @@ const AddOrEditEmployee = (props) => {
                         </Row>
                         <Row>
                             <InputGroup className="mb-3">
-                                <InputGroup.Text id="inputGroup-sizing-default">Name</InputGroup.Text>
+                                <InputGroup.Text id="inputGroup-sizing-default"><FormattedMessage id='employee.name' /></InputGroup.Text>
                                 <FormControl value={name} onChange={handleChangeName}
                                     aria-label="Default"
                                     aria-describedby="inputGroup-sizing-default"
@@ -157,11 +160,12 @@ const AddOrEditEmployee = (props) => {
                     <Row>
                         <Col xs={7}   >
                             <Button variant="primary" onClick={handleSubmit}>
-                                {(!editEmployee || !_.isEmpty(editEmployee)) ? 'Edit' : 'Add New'}
+                                {_.isEmpty(editEmployee) ? <FormattedMessage id='employee.addNewEmployee' /> :
+                                    <FormattedMessage id='employee.editEmployee' />}
                             </Button>
                         </Col>
                         <Col xs={4}>
-                            <Button variant="secondary" onClick={props.onHide}>Close</Button>
+                            <Button variant="secondary" onClick={props.onHide}><FormattedMessage id='common.close' /></Button>
                         </Col>
                     </Row>
                 </Modal.Footer>
